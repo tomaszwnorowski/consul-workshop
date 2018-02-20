@@ -1,0 +1,33 @@
+apply plugin: 'org.springframework.boot'
+
+group = 'weather'
+version = '0.0.1'
+
+dependencies {
+    // service discovery
+    compile('org.springframework.cloud:spring-cloud-starter-consul-config')
+
+    // configuration management
+    compile('org.springframework.cloud:spring-cloud-starter-consul-discovery')
+
+    // web development
+    compile('org.springframework.boot:spring-boot-actuator')
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    // tools
+    runtime('org.springframework.boot:spring-boot-devtools')
+    compileOnly('org.projectlombok:lombok')
+
+    // test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+bootRun {
+    systemProperties System.properties
+}
