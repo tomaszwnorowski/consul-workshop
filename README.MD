@@ -2,7 +2,7 @@
 During workshop you will be developing weather-station and weather-forecast services that provides information about
 weather conditions. To be able to complete tasks described in workshop you will need:
 
-1. JDK8 or newer
+1. JDK8 (recommended) or newer
 2. IDE
 3. Internet connection
 4. Browser
@@ -73,6 +73,9 @@ To verify that your code works try changing weather temperature in `weather-stat
 restart application and observe status in consul. Moreover visit health endpoint and analyze output:
 
 [http://localhost:8080/health](http://localhost:8080/health)
+
+**Note**: Consider analyzing `org.springframework.boot.actuate.health.DiskSpaceHealthIndicator.java` which performs
+similar logic but regarding available disk space.
 
 ## Weather Station: Key/Value Store
 Although we have solved the problem after few hours we receive another email, this time it's from operations team:

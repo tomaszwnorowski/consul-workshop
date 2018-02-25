@@ -89,14 +89,14 @@ then [forecast](http://localhost:8083/weather) endpoint should alternate between
 {
   "temperature": 20,
   "feelsLikeTemperature": 14,
-  "description": "forecast based on: weather-station-8081"
+  "description": "forecast based on weather-station-8081"
 }
 ```
 ```json
 {
   "temperature": 20,
   "feelsLikeTemperature": 14,
-  "description": "forecast based on: weather-station-8082"
+  "description": "forecast based on weather-station-8082"
 }
 ```
 
@@ -126,6 +126,6 @@ then [forecast](http://localhost:8083/weather) endpoint should return forecast o
 {
   "temperature": 20,
   "feelsLikeTemperature": 14,
-  "description": "forecast based on: weather-station-8082"
+  "description": "forecast based on weather-station-8082"
 }
 ```

@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: weather-forecast
-  cloud:
-    consul:
-      port: 8500

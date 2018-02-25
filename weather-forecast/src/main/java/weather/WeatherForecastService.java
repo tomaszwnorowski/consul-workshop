@@ -15,7 +15,7 @@ public class WeatherForecastService {
         final Weather weather = weatherStationClient.getWeather();
         return new WeatherForecast(weather.getTemperature(),
                 weather.getTemperature() * weather.getHumidity(),
-                "forecast based on: " + weather.getStationId()
+                "forecast based on " + weather.getStationId()
         );
     }
 

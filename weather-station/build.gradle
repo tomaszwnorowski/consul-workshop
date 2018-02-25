@@ -14,10 +14,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-actuator')
     compile('org.springframework.boot:spring-boot-starter-web')
 
-    // tools
-    runtime('org.springframework.boot:spring-boot-devtools')
-    compileOnly('org.projectlombok:lombok')
-
     // test
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
