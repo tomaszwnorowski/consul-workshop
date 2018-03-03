@@ -89,9 +89,9 @@ each time sensor threshold changes. Moreover we would need to ensure to redeploy
 keep their configuration in sync.
 
 The decision was made to use `consul key/value store` to keep configuration regarding sensors and use `spring-cloud-consul-config`
-to periodically query key/value store for changes. By default one of the queried keys is `/config/<application-name>?recurse`.
-
-**Note**: `recurse` query parameter means that all sub-keys of weather-stations will also be queried
+to periodically query key/value store for changes. By default one of the queried keys is `/config/<application-name>` and all of
+its subkeys. For example value of key `/config/weather-station/weather/temperature` would be mapped to `weather.temperature`
+property in weather-station application.
 
 We should create following keys in consul key/value store using consul ui:
 
@@ -103,6 +103,8 @@ Key | Value
 **Note**: Properties defined in consul will take precedence over those defined in file (you don't need to remove them)
 
 **Note**: You don't need to restart weather-station for changes to apply
+
+**Note**: Make sure not to include any leading/trailing whitespace characters in the key name
 
 To verify that problem is fixed try changing min and max sensors temperature in consul key/value store and then verify that
 health status changes accordingly.
