@@ -10,3 +10,7 @@ weather-station:
     OkToRetryOnAllOperations: yes
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 10000
+
+election:
+  enabled: false
+  key: service/${spring.application.name}/leader

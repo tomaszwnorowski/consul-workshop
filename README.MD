@@ -159,3 +159,26 @@ that should use only weather stations tagged with v2.
 
 1. verify how weather-stations register themselves in consul, can you find information regarding tag?
 2. verify that forecast service will use only v2 weather-station
+
+## Weather Forecast: Leader Election
+It was few weeks since the day that we have allowed to easily load balance/failover/route between weather stations. Development
+team decided to start multiple instances of weather-forecast and share the glory of our success. The same day during prime
+time we have received a call from weather forecast presenter:
+
+> Although we are grateful for having data from multiple weather sensors we don't appreciate receiving multiple different
+weather forecasts at the same time. We can present only one weather forecast at a time, please fix it and do it fast!
+
+We know that having multiple instance of weather forecast is a good thing. At the same time returning multiple slightly
+different weather forecast is confusing for presenters. We could tag one of the services and let presenters receive
+weather forecast only from instance with this particular tag. However this would be a single point of failure, we need
+to come up with some better solution. After hours of discussions it was decided to implement leader election algorithm.
+Distributed algorithms that are based on reaching consensus are one of those things you should never implement from scratch,
+fortunately consul provides foundation that makes that possible.
+
+Please familiarize yourself with content of `weather.election` package in weather-forecast service and implement necessary
+functionality in `LeaderElection.java`. Enable election by changing value of `election.enabled` in `application.yml`
+
+When you are ready start two instances of weather-forecast services (weather-sensors are not needed) and make sure that:
+1. log output shows that one instance is a leader and second instance fails to win election
+2. in consul ui verify which instance is a leader by looking for value of key `service/weather-forecast/leader`
+3. after stopping (simulating crash) of leader instance verify that log output and value of key changes accordingly
