@@ -2,12 +2,13 @@
 During workshop you will be developing weather-station and weather-forecast services that provides information about
 weather conditions. To be able to complete tasks described in workshop you will need:
 
-1. JDK8 (recommended) or newer
+1. JDK8 or newer
 2. IDE
 3. Internet connection
 4. Browser
 
-**Note**: Workshop was created and tested using Intellij Community Edition
+**Note**: Workshop was created and tested using Intellij Community Edition with Lombok plugin and enabled annotation processing.
+
 
 **Note**: In case of some exercises you will need to start multiple jvm instances. It's recommended to specify Xms/Xmx
 parameters to limit memory usage (e.g. `-Xms256m -Xmx256m`)
@@ -74,8 +75,8 @@ restart application and observe status in consul. Moreover visit health endpoint
 
 [http://localhost:8080/health](http://localhost:8080/health)
 
-**Note**: Consider analyzing `org.springframework.boot.actuate.health.DiskSpaceHealthIndicator.java` which performs
-similar logic but regarding available disk space.
+**Note**: Consider analyzing `org.springframework.boot.actuate.health.DiskSpaceHealthIndicator.java` which performs similar 
+logic, but regarding available disk space.
 
 ## Weather Station: Key/Value Store
 Although we have solved the problem after few hours we receive another email, this time it's from operations team:
